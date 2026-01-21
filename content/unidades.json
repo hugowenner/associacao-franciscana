@@ -1,0 +1,59 @@
+{
+  "unidades": [
+    {
+      "nome": "Colégio Santo Antônio",
+      "sigla": "CSA",
+      "descricao": "Instituição de ensino que alia excelência acadêmica aos valores franciscanos, formando cidadãos conscientes e solidários.",
+      "endereco": "Belo Horizonte, MG",
+      "site": "https://www.csa.g12.br"
+    },
+    {
+      "nome": "Centro Social e Cultural Lar Franciscano",
+      "sigla": "CESCLAR",
+      "descricao": "Centro dedicado ao desenvolvimento social e cultural da comunidade, oferecendo atividades educativas e de assistência.",
+      "endereco": "Belo Horizonte, MG"
+    },
+    {
+      "nome": "Centro Social Franciscano",
+      "sigla": "CESFRAN",
+      "descricao": "Promove ações de assistência social e desenvolvimento comunitário inspiradas nos valores franciscanos de fraternidade e serviço.",
+      "endereco": "Minas Gerais"
+    },
+    {
+      "nome": "Centro de Formação e Aperfeiçoamento Educacional",
+      "sigla": "CEFAE",
+      "descricao": "Dedicado à formação continuada de educadores e ao aperfeiçoamento das práticas pedagógicas franciscanas.",
+      "endereco": "Minas Gerais"
+    },
+    {
+      "nome": "Associação Irmão Sol",
+      "sigla": "Irmão Sol",
+      "descricao": "Desenvolve projetos sociais voltados para crianças, adolescentes e famílias em situação de vulnerabilidade social.",
+      "endereco": "Minas Gerais"
+    },
+    {
+      "nome": "EDUCAFRO Minas",
+      "sigla": "EDUCAFRO",
+      "descricao": "Rede de cursos pré-vestibulares comunitários que promove a inclusão de negros e pobres nas universidades públicas e particulares.",
+      "endereco": "Belo Horizonte, MG"
+    },
+    {
+      "nome": "Espaço Franciscano",
+      "sigla": "Espaço Franciscano",
+      "descricao": "Centro de convivência e espiritualidade franciscana, aberto à comunidade para encontros, retiros e formação.",
+      "endereco": "Minas Gerais"
+    },
+    {
+      "nome": "Centro Franciscano de Formação Cristã",
+      "sigla": "CFFC Divinópolis",
+      "descricao": "Promove a formação cristã e a espiritualidade franciscana através de cursos, retiros e atividades pastorais.",
+      "endereco": "Divinópolis, MG"
+    },
+    {
+      "nome": "Escola Franciscana de Teologia",
+      "sigla": "EFT",
+      "descricao": "Instituição de ensino teológico que forma religiosos e leigos na tradição franciscana e no pensamento católico.",
+      "endereco": "Belo Horizonte, MG"
+    }
+  ]
+}
