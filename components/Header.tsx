@@ -7,6 +7,7 @@ import Container from './Container'
 /**
  * Cabeçalho principal do site
  * Navegação responsiva com menu mobile
+ * Sombra marrom mais intensa para garantir a visibilidade do tom terroso
  */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -16,11 +17,16 @@ export default function Header() {
     { href: '/quem-somos', label: 'Quem Somos' },
     { href: '/unidades', label: 'Unidades' },
     { href: '/noticias', label: 'Notícias' },
+    { href: '/doacoes', label: 'Doações' },
     { href: '/contato', label: 'Contato' },
   ]
 
   return (
-    <header className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100 transition-all duration-300">
+    <header 
+      className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 transition-all duration-300 shadow-[0_4px_15px_rgba(80,50,30,0.25)]"
+      // AUMENTEI A OPACIDADE de 0.08 para 0.25 E ESCURECI O MARROM (RGB 80,50,30)
+      // Isso garante que a sombra seja claramente visível e marrom
+    >
       <Container>
         <nav className="flex items-center justify-between py-4" aria-label="Navegação principal">
           {/* Logo e nome */}

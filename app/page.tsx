@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Container from '@/components/Container'
 import Section from '@/components/Section'
 import Hero from '@/components/Hero'
+import Organogram from '@/components/Organogram' 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -10,6 +11,39 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
+  // ✅ DADOS ATUALIZADOS: Reflete a hierarquia obrigatória (4 Unidades)
+  // Dica de arquitetura: Idealmente, isso viria de um import: import { unidades } from '@/data/unidades.json'
+  const unidadesAssociacao = [
+    {
+      "nome": "Colégio Santo Antônio",
+      "sigla": "CSA",
+      "descricao": "Instituição de ensino que alia excelência acadêmica aos valores franciscanos, formando cidadãos conscientes e solidários.",
+      "endereco": "Belo Horizonte, MG",
+      "site": "https://www.csa.g12.br"
+    },
+    {
+      "nome": "Centro de Educação Infantil São Francisco",
+      "sigla": "CESFRAN",
+      "descricao": "Centro dedicado ao desenvolvimento infantil, promovendo o cuidado e a educação na primeira infância.",
+      "endereco": "Belo Horizonte, MG",
+      "site": null
+    },
+    {
+      "nome": "Centro de Educação Infantil Santa Clara",
+      "sigla": "CESCLAR",
+      "descricao": "Promove o desenvolvimento integral da criança por meio de atividades lúdicas e pedagógicas.",
+      "endereco": "Belo Horizonte, MG",
+      "site": null
+    },
+    {
+      "nome": "Centro Franciscano de Apoio Escolar",
+      "sigla": "CEFAE 1 e 2",
+      "descricao": "Oferece suporte pedagógico e atividades de reforço escolar para complementar a aprendizagem.",
+      "endereco": "Belo Horizonte, MG",
+      "site": null
+    }
+  ]
+
   return (
     <>
       {/* Hero Section */}
@@ -113,10 +147,34 @@ export default function HomePage() {
         </Container>
       </Section>
 
+      {/* --- SEÇÃO DE HIERARQUIA (ORGANOGRAMA) --- */}
+      <Section background="light">
+        <Container>
+          <div className="text-center mb-16">
+             <span className="text-franciscan-green font-bold tracking-widest uppercase text-sm">Estrutura Institucional</span>
+             <h2 className="text-3xl md:text-4xl font-bold text-franciscan-brown mt-2 mb-4">Nossa Hierarquia</h2>
+             <div className="w-24 h-1 bg-franciscan-green mx-auto rounded-full mb-6"></div>
+             <p className="mt-4 text-franciscan-gray max-w-2xl mx-auto">
+               Conheça a organização da Associação Franciscana, partindo da nossa Sede Administrativa até as unidades de atuação.
+             </p>
+          </div>
+          
+          {/* Componente Organogram recebe os dados atualizados */}
+          <Organogram 
+            unidades={unidadesAssociacao}
+          />
+        </Container>
+      </Section>
+      {/* --- FIM DA SEÇÃO DE HIERARQUIA --- */}
+
       {/* CTA */}
+    {/* CTA */}
       <Section background="white">
         <Container>
-          <div className="text-center bg-gradient-to-br from-franciscan-brown via-amber-900 to-amber-950 rounded-3xl p-10 md:p-16 shadow-2xl text-white max-w-5xl mx-auto relative overflow-hidden">
+          <div 
+            className="text-center bg-franciscan-brown rounded-3xl p-10 md:p-16 shadow-2xl text-white max-w-5xl mx-auto relative overflow-hidden"
+            // ALTERAÇÃO: Substituí 'bg-gradient-to-br...' por 'bg-franciscan-brown' (sólido)
+          >
             {/* Decoração de fundo do CTA */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
             
