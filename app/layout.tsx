@@ -18,10 +18,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pt-BR">
-      <body className="bg-white text-franciscan-gray antialiased">
+    <html lang="pt-BR" className="scroll-smooth">
+      {/* REMOVIDO bg-white DAQUI PARA DEIXAR O FUNDO GLOBAL VISÍVEL */}
+      <body className="text-franciscan-gray antialiased selection:bg-franciscan-green/20 selection:text-franciscan-brown">
         <Header />
-        <main className="min-h-screen">
+        <main className="min-h-screen flex flex-col justify-center">
           {children}
         </main>
         <Footer />

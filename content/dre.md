@@ -54,4 +54,4 @@ Os recursos da Associação Franciscana são aplicados integralmente em:
 
 ## Dúvidas
 
-Para esclarecimentos sobre os documentos financeiros, entre em contato através do e-mail: Edilson.sodre@csa.g12.br
+Para esclarecimentos sobre os documentos financeiros, entre em contato através do e-mail: contato@associacaofranciscana.org.br

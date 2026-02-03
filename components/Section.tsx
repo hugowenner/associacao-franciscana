@@ -1,30 +1,33 @@
 import React from 'react'
+import type { BackgroundVariant } from '@/types'
 
 interface SectionProps {
   children: React.ReactNode
   className?: string
-  background?: 'light' | 'beige' | 'white'
+  background?: BackgroundVariant
+  id?: string // Para ancoragem
 }
 
 /**
- * Seção com espaçamento vertical consistente
- * Permite variação de cor de fundo
- * 
- * ATUALIZAÇÃO: Transparência /90 adicionada para mostrar o background da imagem
+ * Seção com espaçamento vertical consistente e variantes de cor
+ * Adiciona suporte a IDs para navegação
  */
 export default function Section({ 
   children, 
   className = '',
-  background = 'white' 
+  background = 'white',
+  id
 }: SectionProps) {
-  const bgColors = {
-    light: 'bg-franciscan-light/90',
-    beige: 'bg-franciscan-beige/90',
-    white: 'bg-white/90',
+  const bgStyles: Record<BackgroundVariant, string> = {
+    light: 'bg-franciscan-light/80 backdrop-blur-md',
+    beige: 'bg-franciscan-beige/80 backdrop-blur-md',
+    white: 'bg-white/80 backdrop-blur-md',
+    primary: 'bg-franciscan-brown text-white shadow-inner',
+    transparent: 'bg-transparent'
   }
 
   return (
-    <section className={`py-12 md:py-16 lg:py-20 ${bgColors[background]} ${className}`}>
+    <section id={id} className={`py-20 md:py-28 lg:py-32 relative ${bgStyles[background]} ${className} transition-colors duration-500`}>
       {children}
     </section>
   )

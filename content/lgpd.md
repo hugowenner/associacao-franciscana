@@ -35,7 +35,7 @@ Adotamos medidas técnicas e organizacionais adequadas para proteger os dados pe
 
 ## Contato
 
-Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato conosco através do e-mail: Edilson.sodre@csa.g12.br
+Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato conosco através do e-mail: contato@associacaofranciscana.org.br
 
 ## Atualização
 

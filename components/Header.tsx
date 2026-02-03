@@ -20,33 +20,34 @@ export default function Header() {
   ]
 
   return (
-    <header className="bg-white/95 shadow-sm sticky top-0 z-50 backdrop-blur-sm">
+    <header className="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-gray-100 transition-all duration-300">
       <Container>
         <nav className="flex items-center justify-between py-4" aria-label="Navegação principal">
           {/* Logo e nome */}
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3 group">
             <img
               src="/images/logo.jpeg"
               alt="Logo Associação Franciscana"
-              className="h-12 w-auto"
+              className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-90"
             />
+
             <div className="hidden sm:block">
-              <p className="font-semibold text-franciscan-brown text-lg leading-tight">
+              <p className="font-bold text-franciscan-brown text-lg leading-tight group-hover:text-franciscan-green transition-colors">
                 Associação Franciscana
               </p>
-              <p className="text-xs text-franciscan-gray">
+              <p className="text-xs text-franciscan-gray font-medium tracking-wide uppercase">
                 Educação e Assistência Social
               </p>
             </div>
           </Link>
 
           {/* Navegação Desktop */}
-          <ul className="hidden md:flex space-x-8">
+          <ul className="hidden md:flex space-x-1 bg-gray-50/50 p-1 rounded-full border border-gray-100">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-franciscan-gray hover:text-franciscan-brown transition-colors font-medium"
+                  className="block px-5 py-2 rounded-full text-sm font-medium text-franciscan-gray hover:text-franciscan-brown hover:bg-white hover:shadow-sm transition-all duration-300"
                 >
                   {item.label}
                 </Link>
@@ -56,7 +57,7 @@ export default function Header() {
 
           {/* Botão Menu Mobile */}
           <button
-            className="md:hidden p-2 text-franciscan-gray hover:text-franciscan-brown"
+            className="md:hidden p-2 text-franciscan-brown hover:bg-franciscan-light rounded-lg transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Abrir menu de navegação"
             aria-expanded={mobileMenuOpen}
@@ -81,13 +82,13 @@ export default function Header() {
 
         {/* Menu Mobile */}
         {mobileMenuOpen && (
-          <nav className="md:hidden pb-4 border-t border-gray-200 pt-4" aria-label="Menu mobile">
-            <ul className="space-y-3">
+          <nav className="md:hidden pb-4 border-t border-gray-100 pt-4 animate-fade-in" aria-label="Menu mobile">
+            <ul className="space-y-1">
               {navItems.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="block py-2 text-franciscan-gray hover:text-franciscan-brown transition-colors font-medium"
+                    className="block py-3 px-4 text-franciscan-gray hover:text-franciscan-brown hover:bg-franciscan-light/50 rounded-lg font-medium transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.label}
