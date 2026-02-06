@@ -50,7 +50,7 @@ export default function HomePage() {
       <Hero
         title="Associação Franciscana de Educação e Assistência Social"
         subtitle="Educação e assistência social inspiradas nos valores de São Francisco de Assis"
-        imageSrc="/images/fradeassis.png"
+        imageSrc="/images/fradeassis01.png"
       />
 
       {/* Missão */}

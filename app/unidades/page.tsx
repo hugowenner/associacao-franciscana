@@ -26,7 +26,7 @@ export default async function UnidadesPage() {
       <Hero
         title="Nossas Unidades"
         subtitle="Conheça nossa estrutura organizacional, da Sede Administrativa às unidades de atuação."
-        imageSrc="/images/unidades.png"
+        backgroundImage="/images/unidades.png"
       />
 
       {/* Utilizamos o mesmo layout de seção, mas injetamos o Organogram */}

@@ -16,7 +16,7 @@ export default function ContatoPage() {
       <Hero
         title="Fale Conosco"
         subtitle="Estamos à disposição para atendê-lo. Entre em contato conosco."
-        imageSrc="/images/contato.png"
+        backgroundImage="/images/contato.png"
       />
 
       <Section background="white">

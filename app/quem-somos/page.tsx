@@ -17,7 +17,7 @@ export default async function QuemSomosPage() {
       <Hero
         title="Quem Somos"
         subtitle="Conheça a história e missão da Associação Franciscana de Educação e Assistência Social, inspirada nos valores de São Francisco de Assis."
-        imageSrc="/images/quem-somos.png"
+        backgroundImage="/images/quem-somos.png"
       />
 
       <Section background="white">

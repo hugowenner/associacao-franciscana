@@ -17,7 +17,7 @@ export default async function LGPDPage() {
       <Hero
         title="Política de Privacidade"
         subtitle="Proteção de Dados Pessoais em conformidade com a LGPD."
-        imageSrc="/images/lgpd.png"
+        backgroundImage="/images/lgpd.png"
       />
 
       <Section background="white">

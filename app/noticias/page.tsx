@@ -18,7 +18,7 @@ export default function NoticiasPage() {
       <Hero
         title="Notícias & Comunicados"
         subtitle="Acompanhe as últimas novidades e atualizações da Associação Franciscana."
-        imageSrc="/images/noticias.png"
+        backgroundImage="/images/noticias.png"
       />
 
       <Section background="light">

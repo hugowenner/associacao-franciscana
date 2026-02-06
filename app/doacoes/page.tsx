@@ -17,7 +17,7 @@ export default function DoacoesPage() {
       <Hero
         title="Doe com Amor e Solidariedade"
         subtitle="Seu gesto fortalece nossa missão de fé, educação e cuidado com o próximo"
-        imageSrc="/images/doacoes-bg.jpg" // Verifique se a imagem existe ou utilize uma genérica
+        backgroundImage="/images/doacoes-bg.jpg"
         overlayOpacity="bg-gradient-to-b from-black/70 via-franciscan-brown/60 to-franciscan-brown/80"
       />
 

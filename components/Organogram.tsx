@@ -10,7 +10,7 @@ interface UnidadeData {
   sigla: string
   descricao: string
   endereco: string
-  site?: string
+  site?: string | null  // 👈 Aceita string, undefined OU null
 }
 
 interface OrganogramProps {
@@ -116,7 +116,7 @@ export default function Organogram({ unidades }: OrganogramProps) {
                   </div>
 
                   <div className="mt-auto">
-                    {unit.site ? (
+                    {unit.site && unit.site !== '' ? (  // 👈 Verifica se existe e não é string vazia
                       <Link
                         href={unit.site}
                         target="_blank"
