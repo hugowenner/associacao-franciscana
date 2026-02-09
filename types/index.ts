@@ -1,5 +1,18 @@
 import { ReactNode } from 'react'
 
+// --- Tipos de Fundo (Adicionado para corrigir o erro do Section) ---
+export type BackgroundVariant = 'light' | 'white' | 'beige' | 'gray';
+
+// --- Componente Hero ---
+export interface HeroProps {
+  title: string;
+  subtitle?: string;
+  backgroundImage: string;
+  overlayOpacity?: string;
+  height?: 'sm' | 'md' | 'lg';
+}
+
+// --- Componente Card ---
 export interface CardProps {
   title: string
   description?: string
@@ -11,14 +24,7 @@ export interface CardProps {
   children?: ReactNode
 }
 
-// ADICIONAR ESTA INTERFACE
-export interface HeroProps {
-  title: string
-  subtitle?: string
-  backgroundImage?: string
-  children?: ReactNode
-}
-
+// --- Dados de Unidades ---
 export interface UnidadeData {
   nome: string
   sigla: string
@@ -27,6 +33,7 @@ export interface UnidadeData {
   site?: string | null
 }
 
+// --- Dados de Notícias ---
 export interface NoticiaFrontmatter {
   title: string
   date: string

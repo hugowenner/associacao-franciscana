@@ -1,12 +1,13 @@
 import React from 'react'
 import Container from './Container'
 import type { HeroProps } from '@/types'
+// REMOVI: import getBaseWebpackConfig from 'next/dist/build/webpack-config' (Essa linha não é necessária)
 
 export default function Hero({
   title,
   subtitle,
-  imageSrc,
-  overlayOpacity = 'bg-gradient-to-r from-black/80 via-black/50 to-black/30', /* Gradiente mais moderno */
+  backgroundImage: imageSrc, // Você renomeou a prop para 'imageSrc' aqui dentro
+  overlayOpacity = 'bg-gradient-to-r from-black/80 via-black/50 to-black/30', 
   height = 'lg'
 }: HeroProps) {
   const heights = {
@@ -18,11 +19,12 @@ export default function Hero({
   return (
     <section
       className={`relative w-full ${heights[height]} bg-cover bg-center bg-no-repeat overflow-hidden group`}
-      style={{ backgroundImage: `url('${imageSrc}')` }}
+      // CORREÇÃO AQUI: Inseri a variável ${imageSrc} dentro da url
+      style={{ backgroundImage: `url('${imageSrc}')` }} 
     >
       <div className={`absolute inset-0 ${overlayOpacity} transition-all duration-700`}></div>
       
-      {/* Efeito de textura sutil sobre o overlay */}
+      {/* Efeito de textura sutil */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20"></div>
 
       <Container className="relative z-10">

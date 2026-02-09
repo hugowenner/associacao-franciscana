@@ -14,11 +14,12 @@ export default function DoacoesPage() {
     <>
       {/* Hero Section */}
       {/* Nota: Recomenda-se usar uma imagem suave para o background, ex: '/images/doacoes-bg.jpg' */}
-      <Hero
+            <Hero
         title="Doe com Amor e Solidariedade"
         subtitle="Seu gesto fortalece nossa missão de fé, educação e cuidado com o próximo"
         backgroundImage="/images/doacoes-bg.jpg"
-        overlayOpacity="bg-gradient-to-b from-black/70 via-franciscan-brown/60 to-franciscan-brown/80"
+        // REMOVA ESTA LINHA ABAIXO:
+        // overlayOpacity="bg-gradient-to-b from-black/70 via-franciscan-brown/60 to-franciscan-brown/80"
       />
 
       {/* Seção: Por que Doar */}

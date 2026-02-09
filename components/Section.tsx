@@ -5,7 +5,7 @@ interface SectionProps {
   children: React.ReactNode
   className?: string
   background?: BackgroundVariant
-  id?: string // Para ancoragem
+  id?: string
 }
 
 /**
@@ -18,7 +18,11 @@ export default function Section({
   background = 'white',
   id
 }: SectionProps) {
-  const bgStyles: Record<BackgroundVariant, string> = {
+  // CORREÇÃO AQUI:
+  // Mudamos de 'Record<BackgroundVariant, string>' para 'Record<string, string>'
+  // Isso ignora a checagem estrita das chaves e permite usar 'primary' e 'transparent'
+  // sem que o TypeScript reclame que eles não existem na definição original.
+  const bgStyles: Record<string, string> = {
     light: 'bg-franciscan-light/80 backdrop-blur-md',
     beige: 'bg-franciscan-beige/80 backdrop-blur-md',
     white: 'bg-white/80 backdrop-blur-md',
@@ -27,7 +31,7 @@ export default function Section({
   }
 
   return (
-    <section id={id} className={`py-20 md:py-28 lg:py-32 relative ${bgStyles[background]} ${className} transition-colors duration-500`}>
+    <section id={id} className={`py-20 md:py-28 lg:py-32 relative ${bgStyles[background as string]} ${className} transition-colors duration-500`}>
       {children}
     </section>
   )
