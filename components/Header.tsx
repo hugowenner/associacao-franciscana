@@ -24,8 +24,6 @@ export default function Header() {
   return (
     <header 
       className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 transition-all duration-300 shadow-[0_4px_15px_rgba(80,50,30,0.25)]"
-      // AUMENTEI A OPACIDADE de 0.08 para 0.25 E ESCURECI O MARROM (RGB 80,50,30)
-      // Isso garante que a sombra seja claramente visível e marrom
     >
       <Container>
         <nav className="flex items-center justify-between py-4" aria-label="Navegação principal">
@@ -33,16 +31,18 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 group">
             <img
               src="/images/logo.jpeg"
-              alt="Logo Associação Franciscana"
+              // AJUSTE: Alt text atualizado com o nome institucional correto
+              alt="Logo Associação Franciscana de Educação e Assistência Social"
               className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-90"
             />
 
             <div className="hidden sm:block">
+              {/* AJUSTE: Inserido "de" para completar o nome institucional */}
               <p className="font-bold text-franciscan-brown text-lg leading-tight group-hover:text-franciscan-green transition-colors">
                 Associação Franciscana
               </p>
               <p className="text-xs text-franciscan-gray font-medium tracking-wide uppercase">
-                Educação e Assistência Social
+                de Educação e Assistência Social
               </p>
             </div>
           </Link>

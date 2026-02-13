@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Image from 'next/image' // 1. Import adicionado para o Logo
 import Container from '@/components/Container'
 import Section from '@/components/Section'
 import ContactForm from '@/components/ContactForm'
@@ -24,11 +25,31 @@ export default function ContatoPage() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Coluna Esquerda: Informações */}
             <div className="lg:col-span-2 space-y-10">
+              
+              {/* 2. NOVO BLOCO: Logo + Nome Institucional (Ajustado) */}
+              <div className="flex items-center gap-4 mb-8">
+                <div className="flex-shrink-0">
+                  <Image
+                    src="/images/logo.jpeg"
+                    alt="Logo da Associação Franciscana de Educação e Assistência Social" // 3. Texto corrigido no alt
+                    width={112} // Tamanho base para w-28
+                    height={112}
+                    className="w-20 h-20 md:w-28 md:h-28 object-cover rounded-full shadow-md border-2 border-white" // 4. Responsividade w-20 -> w-28
+                  />
+                </div>
+                <div>
+                  {/* 5. Texto Corrigido e Destaque Visual */}
+                  <h2 className="text-xl md:text-2xl font-extrabold text-franciscan-brown leading-tight tracking-tight">
+                    Associação Franciscana de Educação e Assistência Social
+                  </h2>
+                </div>
+              </div>
+
               <div>
-                <h2 className="text-2xl font-bold text-franciscan-brown mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-franciscan-brown mb-4 flex items-center gap-2">
                   <span className="w-8 h-1 bg-franciscan-green rounded"></span>
                   Canais de Atendimento
-                </h2>
+                </h3>
                 <p className="text-franciscan-gray text-base leading-relaxed">
                   Utilize um dos canais abaixo para entrar em contato com nossa administração central.
                 </p>

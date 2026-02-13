@@ -18,10 +18,7 @@ export default function Section({
   background = 'white',
   id
 }: SectionProps) {
-  // CORREÇÃO AQUI:
-  // Mudamos de 'Record<BackgroundVariant, string>' para 'Record<string, string>'
-  // Isso ignora a checagem estrita das chaves e permite usar 'primary' e 'transparent'
-  // sem que o TypeScript reclame que eles não existem na definição original.
+
   const bgStyles: Record<string, string> = {
     light: 'bg-franciscan-light/80 backdrop-blur-md',
     beige: 'bg-franciscan-beige/80 backdrop-blur-md',
