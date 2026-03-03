@@ -1,12 +1,11 @@
 import React from 'react'
 import Container from './Container'
 import type { HeroProps } from '@/types'
-// REMOVI: import getBaseWebpackConfig from 'next/dist/build/webpack-config' (Essa linha não é necessária)
 
 export default function Hero({
   title,
   subtitle,
-  backgroundImage: imageSrc, // Você renomeou a prop para 'imageSrc' aqui dentro
+  backgroundImage: imageSrc,
   overlayOpacity = 'bg-gradient-to-r from-black/80 via-black/50 to-black/30', 
   height = 'lg'
 }: HeroProps) {
@@ -18,13 +17,15 @@ export default function Hero({
 
   return (
     <section
-      className={`relative w-full ${heights[height]} bg-cover bg-center bg-no-repeat overflow-hidden group`}
-      // CORREÇÃO AQUI: Inseri a variável ${imageSrc} dentro da url
+      // CORREÇÃO APLICADA AQUI:
+      // 1. Mudamos de 'bg-center' para 'bg-[center_top]'.
+      // Isso alinha o topo da imagem com o topo do container, evitando cortar a cabeça.
+      className={`relative w-full ${heights[height]} bg-cover bg-[80%_41%] bg-no-repeat overflow-hidden group`}
       style={{ backgroundImage: `url('${imageSrc}')` }} 
     >
       <div className={`absolute inset-0 ${overlayOpacity} transition-all duration-700`}></div>
       
-      {/* Efeito de textura sutil */}
+      {/* Textura sutil */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20"></div>
 
       <Container className="relative z-10">

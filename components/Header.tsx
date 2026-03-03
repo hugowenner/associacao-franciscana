@@ -7,7 +7,6 @@ import Container from './Container'
 /**
  * Cabeçalho principal do site
  * Navegação responsiva com menu mobile
- * Sombra marrom mais intensa para garantir a visibilidade do tom terroso
  */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -22,26 +21,26 @@ export default function Header() {
   ]
 
   return (
-    <header 
-      className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 transition-all duration-300 shadow-[0_4px_15px_rgba(80,50,30,0.25)]"
-    >
+    <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 transition-all duration-300 shadow-[0_4px_15px_rgba(80,50,30,0.25)]">
       <Container>
         <nav className="flex items-center justify-between py-4" aria-label="Navegação principal">
+          
           {/* Logo e nome */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center space-x-4 group">
             <img
-              src="/images/logo.jpeg"
-              // AJUSTE: Alt text atualizado com o nome institucional correto
+              src="/images/logo.png"
               alt="Logo Associação Franciscana de Educação e Assistência Social"
-              className="h-10 w-auto transition-opacity duration-300 group-hover:opacity-90"
+              // AJUSTE 1: Altura aumentada de h-10 para h-12
+              className="h-20 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
             />
 
             <div className="hidden sm:block">
-              {/* AJUSTE: Inserido "de" para completar o nome institucional */}
-              <p className="font-bold text-franciscan-brown text-lg leading-tight group-hover:text-franciscan-green transition-colors">
+              {/* AJUSTE 2: Nome aumentado para text-xl (e text-2xl em telas maiores) para melhor alinhamento visual */}
+              <p className="font-bold text-franciscan-brown text-xl md:text-2xl leading-tight group-hover:text-franciscan-green transition-colors">
                 Associação Franciscana
               </p>
-              <p className="text-xs text-franciscan-gray font-medium tracking-wide uppercase">
+              {/* Texto inferior mantido pequeno para criar hierarquia */}
+              <p className="text-[13px] md:text-[13px] text-franciscan-gray font-semibold tracking-widest uppercase mt-1">
                 de Educação e Assistência Social
               </p>
             </div>

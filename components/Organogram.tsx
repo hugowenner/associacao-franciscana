@@ -41,10 +41,10 @@ export default function Organogram({ unidades }: OrganogramProps) {
             {/* LOGO DA SEDE */}
             <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6 backdrop-blur-sm border border-white/10">
               <Image
-                src="/images/logo.jpeg"
+                src="/images/logo.png"
                 alt="Logo da Associação Franciscana de Educação e Assistência Social"
-                width={56}
-                height={56}
+                width={80}
+                height={54}
                 className="object-contain rounded-full bg-white p-1"
                 priority
               />

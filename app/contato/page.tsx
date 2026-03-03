@@ -11,39 +11,42 @@ export const metadata: Metadata = {
   description: 'Entre em contato com a Associação Franciscana de Educação e Assistência Social.',
 }
 
+// ... imports
+
 export default function ContatoPage() {
   return (
     <>
-      <Hero
-        title="Fale Conosco"
-        subtitle="Estamos à disposição para atendê-lo. Entre em contato conosco."
-        backgroundImage="/images/contato.png"
-      />
+      {/* ... Hero ... */}
 
       <Section background="white">
         <Container>
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-            {/* Coluna Esquerda: Informações */}
             <div className="lg:col-span-2 space-y-10">
               
-              {/* 2. NOVO BLOCO: Logo + Nome Institucional (Ajustado) */}
+              {/* BLOCO AJUSTADO: Logo + Nome */}
               <div className="flex items-center gap-4 mb-8">
-                <div className="flex-shrink-0">
+                <div className="flex-shrink-0 w-20 h-20 md:w-28 md:h-28 bg-white rounded-full shadow-md border-2 border-gray-100 p-1 flex items-center justify-center">
                   <Image
-                    src="/images/logo.jpeg"
-                    alt="Logo da Associação Franciscana de Educação e Assistência Social" // 3. Texto corrigido no alt
-                    width={112} // Tamanho base para w-28
-                    height={112}
-                    className="w-20 h-20 md:w-28 md:h-28 object-cover rounded-full shadow-md border-2 border-white" // 4. Responsividade w-20 -> w-28
+                    src="/images/logo.png"
+                    alt="Logo da Associação Franciscana de Educação e Assistência Social"
+                    width={100} 
+                    height={100}
+                    // AJUSTE: object-contain para não cortar, fundo já é branco no wrapper
+                    className="w-full h-full object-contain rounded-full" 
                   />
                 </div>
                 <div>
-                  {/* 5. Texto Corrigido e Destaque Visual */}
+                  {/* AJUSTE: Texto dividido em duas linhas com tamanhos distintos */}
                   <h2 className="text-xl md:text-2xl font-extrabold text-franciscan-brown leading-tight tracking-tight">
-                    Associação Franciscana de Educação e Assistência Social
+                    Associação Franciscana
+                    <span className="block text-sm md:text-base font-medium text-franciscan-gray mt-1 uppercase tracking-wider">
+                      de Educação e Assistência Social
+                    </span>
                   </h2>
                 </div>
               </div>
+              
+              {/* ... Restante do conteúdo ... */}
 
               <div>
                 <h3 className="text-lg font-bold text-franciscan-brown mb-4 flex items-center gap-2">
