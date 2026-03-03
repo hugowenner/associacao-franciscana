@@ -2,7 +2,8 @@ import Link from 'next/link'
 import Container from '@/components/Container'
 import Section from '@/components/Section'
 import Hero from '@/components/Hero'
-import Organogram from '@/components/Organogram' 
+import Organogram from '@/components/Organogram'
+import TimelineSection from '@/components/TimelineSection' 
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -11,8 +12,6 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  // ✅ DADOS ATUALIZADOS: Reflete a hierarquia obrigatória (4 Unidades)
-  // Dica de arquitetura: Idealmente, isso viria de um import: import { unidades } from '@/data/unidades.json'
   const unidadesAssociacao = [
     {
       "nome": "Colégio Santo Antônio",
@@ -68,52 +67,8 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      {/* Valores - ÍCONES */}
-      <Section background="white">
-        <Container>
-          <h2 className="text-center mb-16 text-franciscan-brown font-bold text-3xl md:text-4xl">Nossos Valores</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Valor 1 */}
-            <div className="text-center group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
-              <div className="w-20 h-20 bg-gradient-to-br from-franciscan-green to-green-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-franciscan-brown">Fraternidade</h3>
-              <p className="text-franciscan-gray text-base leading-relaxed font-light">
-                Vivemos como irmãos e irmãs, cultivando relações baseadas no respeito, na comunhão e no amor fraterno.
-              </p>
-            </div>
-
-            {/* Valor 2 */}
-            <div className="text-center group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
-              <div className="w-20 h-20 bg-gradient-to-br from-franciscan-green to-green-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transform group-hover:scale-110 group-hover:-rotate-3 transition-all duration-500">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-franciscan-brown">Simplicidade</h3>
-              <p className="text-franciscan-gray text-base leading-relaxed font-light">
-                Inspirados por São Francisco de Assis, buscamos uma vida simples, essencial e comprometida com o bem comum.
-              </p>
-            </div>
-
-            {/* Valor 3 */}
-            <div className="text-center group p-6 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100">
-              <div className="w-20 h-20 bg-gradient-to-br from-franciscan-green to-green-800 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-3 text-franciscan-brown">Serviço</h3>
-              <p className="text-franciscan-gray text-base leading-relaxed font-light">
-                Dedicamos nossa missão à educação e à assistência social, promovendo inclusão, justiça e cuidado com a vida.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      {/* --- NOVA SEÇÃO: LINHA DO TEMPO CONCEITUAL --- */}
+      <TimelineSection />
 
       {/* Identidade e Presença */}
       <Section background="light">
@@ -159,23 +114,18 @@ export default function HomePage() {
              </p>
           </div>
           
-          {/* Componente Organogram recebe os dados atualizados */}
           <Organogram 
             unidades={unidadesAssociacao}
           />
         </Container>
       </Section>
-      {/* --- FIM DA SEÇÃO DE HIERARQUIA --- */}
 
       {/* CTA */}
-    {/* CTA */}
       <Section background="white">
         <Container>
           <div 
             className="text-center bg-franciscan-brown rounded-3xl p-10 md:p-16 shadow-2xl text-white max-w-5xl mx-auto relative overflow-hidden"
-            // ALTERAÇÃO: Substituí 'bg-gradient-to-br...' por 'bg-franciscan-brown' (sólido)
           >
-            {/* Decoração de fundo do CTA */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
             
             <div className="relative z-10">
