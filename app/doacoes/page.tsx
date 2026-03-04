@@ -106,7 +106,7 @@ export default function DoacoesPage() {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a
-                href="http://pazebemsolidario.org.br/"
+                href="https://pazebemsolidario.org.br/" /* ALTERADO PARA HTTPS */
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-4 bg-franciscan-green hover:bg-green-800 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-lg"

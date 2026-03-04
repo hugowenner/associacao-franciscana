@@ -5,28 +5,28 @@
       "sigla": "CSA",
       "descricao": "Instituição de ensino que alia excelência acadêmica aos valores franciscanos, formando cidadãos conscientes e solidários.",
       "endereco": "Belo Horizonte, MG",
-      "site": "https://www.csa.g12.br"
+      "site": "https://www.colegiosantoantonio.org.br"
     },
     {
       "nome": "Centro de Educação Infantil São Francisco",
       "sigla": "CESFRAN",
       "descricao": "Centro dedicado à educação infantil, promovendo o desenvolvimento integral da criança em um ambiente acolhedor.",
       "endereco": "Belo Horizonte, MG",
-      "site": null
+      "site": "https://www.cesfran.org.br"
     },
     {
       "nome": "Centro de Educação Infantil Santa Clara",
       "sigla": "CESCLAR",
       "descricao": "Foco no atendimento educacional especializado e na promoção da socialização na primeira infância.",
       "endereco": "Belo Horizonte, MG",
-      "site": null
+      "site": "https://www.cesclar.org.br"
     },
     {
       "nome": "Centro Franciscano de Apoio Escolar",
       "sigla": "CEFAE 1 e 2",
       "descricao": "Apoio pedagógico e atividades de reforço escolar para complementar a formação dos alunos.",
       "endereco": "Belo Horizonte, MG",
-      "site": null
+      "site": "https://www.cefae.org.br"
     }
   ]
 }

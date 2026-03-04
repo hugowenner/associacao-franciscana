@@ -24,17 +24,16 @@ export default function ContatoPage() {
             <div className="lg:col-span-2 space-y-10">
               
               {/* BLOCO AJUSTADO: Logo + Nome */}
-              <div className="flex items-center gap-4 mb-8">
-                <div className="flex-shrink-0 w-20 h-20 md:w-28 md:h-28 bg-white rounded-full shadow-md border-2 border-gray-100 p-1 flex items-center justify-center">
-                  <Image
-                    src="/images/logo.png"
-                    alt="Logo da Associação Franciscana de Educação e Assistência Social"
-                    width={100} 
-                    height={100}
-                    // AJUSTE: object-contain para não cortar, fundo já é branco no wrapper
-                    className="w-full h-full object-contain rounded-full" 
-                  />
-                </div>
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="flex-shrink-0">
+                      <Image
+                        src="/images/logo.png"
+                        alt="Logo da Associação Franciscana de Educação e Assistência Social"
+                        width={110}
+                        height={110}
+                        className="object-contain"
+                      />
+                    </div>
                 <div>
                   {/* AJUSTE: Texto dividido em duas linhas com tamanhos distintos */}
                   <h2 className="text-xl md:text-2xl font-extrabold text-franciscan-brown leading-tight tracking-tight">
