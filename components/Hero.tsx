@@ -1,38 +1,64 @@
 import React from 'react'
+import Image from 'next/image'
 import Container from './Container'
 import type { HeroProps } from '@/types'
+
+type HeroHeight = 'sm' | 'md' | 'lg'
+
+interface HeroExtraProps {
+  /** Use apenas na Home ou páginas críticas */
+  priority?: boolean
+  /** Controle fino do crop (igual object-position) */
+  imagePosition?: string
+  /** sizes do next/image pra evitar escolher imagem errada */
+  sizes?: string
+}
 
 export default function Hero({
   title,
   subtitle,
   backgroundImage: imageSrc,
-  overlayOpacity = 'bg-gradient-to-r from-black/80 via-black/50 to-black/30', 
-  height = 'lg'
-}: HeroProps) {
-  const heights = {
+  overlayOpacity = 'bg-gradient-to-r from-black/80 via-black/50 to-black/30',
+  height = 'lg' as HeroHeight,
+
+  // novos (opcionais)
+  priority = false,
+  imagePosition = '80% 41%',
+  sizes = '100vw',
+}: HeroProps & HeroExtraProps) {
+  const heights: Record<HeroHeight, string> = {
     sm: 'py-20 md:py-28',
     md: 'py-24 md:py-32',
-    lg: 'py-28 md:py-40'
+    lg: 'py-28 md:py-40',
   }
 
   return (
-    <section
-      // CORREÇÃO APLICADA AQUI:
-      // 1. Mudamos de 'bg-center' para 'bg-[center_top]'.
-      // Isso alinha o topo da imagem com o topo do container, evitando cortar a cabeça.
-      className={`relative w-full ${heights[height]} bg-cover bg-[80%_41%] bg-no-repeat overflow-hidden group`}
-      style={{ backgroundImage: `url('${imageSrc}')` }} 
-    >
-      <div className={`absolute inset-0 ${overlayOpacity} transition-all duration-700`}></div>
-      
-      {/* Textura sutil */}
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20"></div>
+    <section className={`relative w-full ${heights[height]} overflow-hidden`}>
+      {/* IMAGEM (antes era background-image) */}
+      <div className="absolute inset-0">
+        <Image
+          src={imageSrc}
+          alt=""
+          fill
+          priority={priority}
+          sizes={sizes}
+          className="object-cover"
+          style={{ objectPosition: imagePosition }}
+        />
+      </div>
+
+      {/* overlay */}
+      <div className={`absolute inset-0 ${overlayOpacity} transition-all duration-700`} />
+
+      {/* textura (igual você já tinha) */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] opacity-20" />
 
       <Container className="relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight drop-shadow-2xl animate-fade-in-up">
             {title}
           </h1>
+
           {subtitle && (
             <p className="text-lg md:text-2xl text-gray-100 leading-relaxed max-w-3xl mx-auto font-light drop-shadow-lg border-l-4 border-franciscan-green/50 pl-6 md:pl-0 md:border-l-0">
               {subtitle}

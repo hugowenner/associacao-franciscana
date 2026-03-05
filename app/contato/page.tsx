@@ -23,27 +23,6 @@ export default function ContatoPage() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
             <div className="lg:col-span-2 space-y-10">
               
-              {/* BLOCO AJUSTADO: Logo + Nome */}
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="flex-shrink-0">
-                      <Image
-                        src="/images/logo.png"
-                        alt="Logo da Associação Franciscana de Educação e Assistência Social"
-                        width={110}
-                        height={110}
-                        className="object-contain"
-                      />
-                    </div>
-                <div>
-                  {/* AJUSTE: Texto dividido em duas linhas com tamanhos distintos */}
-                  <h2 className="text-xl md:text-2xl font-extrabold text-franciscan-brown leading-tight tracking-tight">
-                    Associação Franciscana
-                    <span className="block text-sm md:text-base font-medium text-franciscan-gray mt-1 uppercase tracking-wider">
-                      de Educação e Assistência Social
-                    </span>
-                  </h2>
-                </div>
-              </div>
               
               {/* ... Restante do conteúdo ... */}
 

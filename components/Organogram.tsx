@@ -31,7 +31,6 @@ export default function Organogram({ unidades }: OrganogramProps) {
 
   const safeUnidades = useMemo(() => unidades ?? [], [unidades])
 
-  // Calcula pontos (desktop) com base no layout real
   useEffect(() => {
     const root = containerRef.current
     if (!root) return
@@ -42,7 +41,6 @@ export default function Organogram({ unidades }: OrganogramProps) {
       const rootRect = root.getBoundingClientRect()
       const hubRect = hubRef.current.getBoundingClientRect()
 
-      // ponto de origem: centro abaixo do card principal
       const xHub = hubRect.left + hubRect.width / 2 - rootRect.left
       const yHub = hubRect.bottom - rootRect.top + 8
 
@@ -52,21 +50,16 @@ export default function Organogram({ unidades }: OrganogramProps) {
         if (!el) return
         const r = el.getBoundingClientRect()
         const x = r.left + r.width / 2 - rootRect.left
-        const yTop = r.top - rootRect.top - 12 // acima do card
+        const yTop = r.top - rootRect.top - 12
         nextNodes.push({ index, x, yTop })
       })
 
-      // ordena para pegar limites do tronco horizontal
       nextNodes.sort((a, b) => a.x - b.x)
 
       if (nextNodes.length > 0) {
         const xMin = nextNodes[0].x
         const xMax = nextNodes[nextNodes.length - 1].x
-
-        // altura da linha horizontal principal (um pouco abaixo do hub)
-        // ajuste esse número pra ficar idêntico ao seu print
         const trunkY = yHub + 50
-
         setTrunk({ y: trunkY, xMin, xMax })
       } else {
         setTrunk(null)
@@ -92,11 +85,9 @@ export default function Organogram({ unidades }: OrganogramProps) {
 
   return (
     <div ref={containerRef} className="w-full py-12 relative">
-      {/* ===== SVG CONNECTORS (DESKTOP) - LINHA HORIZONTAL + QUEDAS RETAS ===== */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 hidden md:block" aria-hidden="true">
         {hubPoint && trunk && (
           <g>
-            {/* tronco vertical (do hub até a linha horizontal) */}
             <path
               d={`M ${hubPoint.x} ${hubPoint.y} L ${hubPoint.x} ${trunk.y}`}
               stroke="rgba(107,142,35,0.28)"
@@ -105,8 +96,6 @@ export default function Organogram({ unidades }: OrganogramProps) {
               strokeLinecap="round"
               className="transition-all duration-300"
             />
-
-            {/* linha horizontal principal */}
             <path
               d={`M ${trunk.xMin} ${trunk.y} L ${trunk.xMax} ${trunk.y}`}
               stroke="rgba(107,142,35,0.28)"
@@ -118,15 +107,12 @@ export default function Organogram({ unidades }: OrganogramProps) {
           </g>
         )}
 
-        {/* quedas verticais + nós */}
         {hubPoint &&
           trunk &&
           nodes.map(({ index, x, yTop }) => {
             const active = hoveredIndex === index
-
             return (
               <g key={index}>
-                {/* queda vertical */}
                 <path
                   d={`M ${x} ${trunk.y} L ${x} ${yTop}`}
                   stroke={active ? 'rgba(107,142,35,0.70)' : 'rgba(107,142,35,0.28)'}
@@ -135,8 +121,6 @@ export default function Organogram({ unidades }: OrganogramProps) {
                   strokeLinecap="round"
                   className="transition-all duration-300"
                 />
-
-                {/* nó em cima (na linha horizontal), como no print */}
                 <circle
                   cx={x}
                   cy={trunk.y}
@@ -146,41 +130,28 @@ export default function Organogram({ unidades }: OrganogramProps) {
                   strokeWidth={2}
                   className="transition-all duration-300"
                 />
-
-                {/* (Opcional) nó embaixo — no seu print não parece ter, então deixei OFF */}
-                {/* 
-                <circle
-                  cx={x}
-                  cy={yTop}
-                  r={3}
-                  fill="#ffffff"
-                  stroke="rgba(107,142,35,0.25)"
-                  strokeWidth={2}
-                />
-                */}
               </g>
             )
           })}
       </svg>
 
       <div className="flex flex-col items-center relative z-10">
-        {/* --- NÍVEL PRINCIPAL (SEDE) --- */}
         <div className="relative z-20 w-full max-w-3xl px-4 flex flex-col items-center">
-          {/* LOGO FORA DO CARD */}
           <div className="mb-6">
             <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-md border border-gray-100">
+              {/* ✅ otimização: não preloada; lazy + sizes */}
               <Image
                 src="/images/logo.png"
                 alt="Logo da Associação Franciscana"
                 width={80}
                 height={80}
+                sizes="80px"
+                loading="lazy"
                 className="object-contain"
-                priority
               />
             </div>
           </div>
 
-          {/* CARD MARROM */}
           <article
             className="
               relative
@@ -197,15 +168,12 @@ export default function Organogram({ unidades }: OrganogramProps) {
               Centro Administrativo
             </p>
 
-            {/* âncora do SVG */}
             <div ref={hubRef} className="absolute left-1/2 -bottom-1 h-1 w-1 -translate-x-1/2" />
           </article>
         </div>
 
-        {/* Espaçador para não colar os cards */}
         <div className="h-24 md:h-32" />
 
-        {/* --- NÍVEL DAS UNIDADES --- */}
         <div className="w-full px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto relative">
             {safeUnidades.map((unit, index) => (
@@ -215,10 +183,8 @@ export default function Organogram({ unidades }: OrganogramProps) {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                {/* Linha Conectora Mobile */}
                 <div className="md:hidden absolute -top-8 left-1/2 transform -translate-x-1/2 w-0.5 h-8 bg-franciscan-green/20" />
 
-                {/* Card */}
                 <div
                   ref={(el) => {
                     cardRefs.current[index] = el
@@ -234,7 +200,6 @@ export default function Organogram({ unidades }: OrganogramProps) {
                       {unit.nome}
                     </h3>
 
-                    {/* underline minimalista */}
                     <div className="mx-auto mt-3 h-[2px] w-10 bg-franciscan-green/20 group-hover:w-16 group-hover:bg-franciscan-green/50 transition-all duration-300 rounded-full" />
                   </div>
 

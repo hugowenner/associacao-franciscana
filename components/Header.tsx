@@ -2,13 +2,10 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Container from './Container'
 import { usePathname } from 'next/navigation'
 
-/**
- * Cabeçalho principal do site
- * Navegação responsiva com menu mobile
- */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -32,24 +29,28 @@ export default function Header() {
       <Container>
         <nav className="flex items-center justify-between py-4" aria-label="Navegação principal">
           {/* Logo e nome */}
-          <Link href="/" className="flex items-center space-x-4 group">
-            <img
-              src="/images/logo.png"
-              alt="Logo Associação Franciscana de Educação e Assistência Social"
-              className="h-20 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
-            />
+          <Link href="/" className="flex items-center space-x-3 group">
+                    <Image
+                      src="/images/logo.png"
+                      alt="Logo Associação Franciscana de Educação e Assistência Social"
+                      width={160}
+                      height={80}
+                      priority
+                      sizes="(max-width: 768px) 160px, 160px"
+                      className="h-14 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
+                    />
 
-            <div className="hidden sm:block">
-              <p className="font-bold text-franciscan-brown text-xl md:text-2xl leading-tight group-hover:text-franciscan-green transition-colors">
-                Associação Franciscana
-              </p>
-              <p className="text-[13px] md:text-[13px] text-franciscan-gray font-semibold tracking-widest uppercase mt-1">
-                de Educação e Assistência Social
-              </p>
-            </div>
-          </Link>
+                    <div className="hidden sm:block">
+                      <p className="font-bold text-franciscan-brown text-lg md:text-xl leading-tight group-hover:text-franciscan-green transition-colors">
+                        Associação Franciscana
+                      </p>
 
-          {/* Navegação Desktop (mais bonita) */}
+                      <p className="text-[11px] md:text-[12px] text-franciscan-gray font-semibold tracking-widest uppercase mt--2">
+                        de Educação e Assistência Social
+                      </p>
+                    </div>
+                  </Link>
+          {/* Navegação Desktop */}
           <ul className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full border border-gray-100 bg-white/70 backdrop-blur shadow-sm">
             {navItems.map((item) => {
               const active = isActive(item.href)
@@ -101,7 +102,7 @@ export default function Header() {
           </button>
         </nav>
 
-        {/* Menu Mobile (mais bonito) */}
+        {/* Menu Mobile */}
         {mobileMenuOpen && (
           <nav className="md:hidden pb-4 border-t border-gray-100 pt-4 animate-fade-in" aria-label="Menu mobile">
             <div className="bg-white/90 backdrop-blur rounded-2xl border border-gray-100 shadow-lg p-2">

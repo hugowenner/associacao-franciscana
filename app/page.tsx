@@ -1,9 +1,8 @@
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import Container from '@/components/Container'
 import Section from '@/components/Section'
 import Hero from '@/components/Hero'
-import Organogram from '@/components/Organogram'
-import TimelineSection from '@/components/TimelineSection'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -11,6 +10,33 @@ export const metadata: Metadata = {
   description:
     'Associação Franciscana de Educação e Assistência Social - Ordem dos Frades Menores (OFM).',
 }
+
+// ✅ Reduz JS inicial (carrega depois)
+const Organogram = dynamic(() => import('@/components/Organogram'), {
+  ssr: true,
+  loading: () => (
+    <div className="w-full rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+      <div className="h-6 w-48 bg-gray-200 rounded mb-4 animate-pulse" />
+      <div className="h-4 w-full bg-gray-200 rounded mb-2 animate-pulse" />
+      <div className="h-4 w-5/6 bg-gray-200 rounded animate-pulse" />
+    </div>
+  ),
+})
+
+const TimelineSection = dynamic(() => import('@/components/TimelineSection'), {
+  ssr: true,
+  loading: () => (
+    <Section background="beige">
+      <Container>
+        <div className="max-w-4xl mx-auto">
+          <div className="h-8 w-64 bg-gray-200 rounded mb-4 animate-pulse" />
+          <div className="h-4 w-full bg-gray-200 rounded mb-2 animate-pulse" />
+          <div className="h-4 w-5/6 bg-gray-200 rounded animate-pulse" />
+        </div>
+      </Container>
+    </Section>
+  ),
+})
 
 export default function HomePage() {
   const unidadesAssociacao = [
@@ -61,31 +87,25 @@ export default function HomePage() {
       <Section background="beige">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
-
-            {/* TÍTULO PRINCIPAL - AJUSTADO PARA FONT-BOLD */}
             <h2 className="text-4xl md:text-5xl font-bold text-franciscan-brown tracking-tight">
               Nossa Missão
             </h2>
 
             <div className="mx-auto mt-5 h-[2px] w-12 bg-franciscan-green/60 rounded-full" />
 
-            {/* MANIFESTO (segundo nível) */}
             <p className="mt-8 text-lg md:text-xl font-medium text-franciscan-brown leading-tight">
               Educar com excelência.<br />
               Cuidar com fraternidade.<br />
               Servir com simplicidade.
             </p>
 
-            {/* TEXTO EXPLICATIVO */}
             <p className="mt-8 text-base md:text-lg leading-relaxed text-franciscan-gray max-w-3xl mx-auto">
               Nossa missão é promover a educação, o cuidado e a dignidade humana,
               guiados por valores como a fraternidade, a simplicidade e o serviço,
               colocando-nos a serviço da sociedade, especialmente dos mais necessitados.
             </p>
 
-            {/* VALORES */}
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left md:text-center">
-              
               <div>
                 <h3 className="text-lg font-semibold text-franciscan-brown">
                   Fraternidade
@@ -112,16 +132,14 @@ export default function HomePage() {
                   Educação e assistência social com inclusão, justiça e cuidado com a vida.
                 </p>
               </div>
-
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* Linha do Tempo */}
+      {/* ✅ Lazy (reduz bundle inicial) */}
       <TimelineSection />
 
-      {/* Hierarquia */}
       <Section background="light">
         <Container>
           <div className="text-center mb-16">
@@ -138,11 +156,11 @@ export default function HomePage() {
             </p>
           </div>
 
+          {/* ✅ Lazy (reduz bundle inicial) */}
           <Organogram unidades={unidadesAssociacao} />
         </Container>
       </Section>
 
-      {/* CTA */}
       <Section background="white">
         <Container>
           <div
@@ -152,14 +170,9 @@ export default function HomePage() {
               bg-franciscan-brown
             "
           >
-            {/* Profundidade sutil (não muda a lógica, só estética) */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/10 pointer-events-none" />
-
-            {/* Brilho decorativo existente (mantido, só refinado) */}
             <div className="absolute top-0 right-0 w-72 h-72 bg-white/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-72 h-72 bg-franciscan-green/10 rounded-full blur-3xl pointer-events-none" />
-
-            {/* Linha institucional na base */}
             <div className="absolute bottom-0 left-0 w-full h-[3px] bg-franciscan-green/70 pointer-events-none" />
 
             <div className="relative z-10">
@@ -172,7 +185,6 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                {/* Primário */}
                 <Link
                   href="/quem-somos"
                   className="
@@ -189,7 +201,6 @@ export default function HomePage() {
                   Nossa História
                 </Link>
 
-                {/* Secundário */}
                 <Link
                   href="/unidades"
                   className="

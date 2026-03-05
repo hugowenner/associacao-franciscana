@@ -1,11 +1,6 @@
 'use client'
 
-/**
- * Componente de Formulário de Contato (Client Component)
- * Gerencia o estado local e a interatividade do formulário
- */
-
-import React, { useState, FormEvent } from 'react'
+import React, { useEffect, useRef, useState, FormEvent } from 'react'
 import Link from 'next/link'
 
 export default function ContactForm() {
@@ -14,13 +9,22 @@ export default function ContactForm() {
     email: '',
     telefone: '',
     assunto: '',
-    mensagem: ''
+    mensagem: '',
   })
 
   const [consentimento, setConsentimento] = useState(false)
-
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const resetTimerRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current) {
+        window.clearTimeout(resetTimerRef.current)
+      }
+    }
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -29,16 +33,12 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-
-    // Safety: não envia sem consentimento (além do disabled)
     if (!consentimento) return
 
     setIsSubmitting(true)
 
-    // Simulação de envio
     await new Promise(resolve => setTimeout(resolve, 1500))
 
-    // Aqui você integraria com sua API real de envio de email
     console.log('Dados do formulário:', formData)
 
     setStatus('success')
@@ -46,13 +46,12 @@ export default function ContactForm() {
     setFormData({ nome: '', email: '', telefone: '', assunto: '', mensagem: '' })
     setConsentimento(false)
 
-    // Reset status after 5 seconds
-    setTimeout(() => setStatus('idle'), 5000)
+    if (resetTimerRef.current) window.clearTimeout(resetTimerRef.current)
+    resetTimerRef.current = window.setTimeout(() => setStatus('idle'), 5000)
   }
 
   return (
     <div className="bg-white/90 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-2xl border border-white/50 relative overflow-hidden">
-      {/* Decoração de fundo */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-franciscan-green/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
 
       <h2 className="text-2xl md:text-3xl mb-8 text-franciscan-brown font-bold flex items-center gap-3">
@@ -181,7 +180,6 @@ export default function ContactForm() {
             )}
           </button>
 
-          {/* AVISO LGPD COM CHECKBOX OBRIGATÓRIO */}
           <div className="pt-4 border-t border-gray-100 mt-6">
             <label className="flex items-start gap-3 cursor-pointer">
               <input

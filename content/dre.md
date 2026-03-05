@@ -30,14 +30,6 @@ Abaixo você encontrará os documentos financeiros da Associação Franciscana:
 
 *[Links para documentos serão inseridos aqui]*
 
-### Exercício 2023
-
-- Demonstração do Resultado do Exercício (DRE)
-- Balanço Patrimonial
-- Notas Explicativas
-
-*[Links para documentos serão inseridos aqui]*
-
 ## Auditoria
 
 Nossos demonstrativos financeiros são auditados por empresa externa independente, garantindo a conformidade com as normas contábeis brasileiras e os princípios de governança corporativa.
