@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Container from './Container'
+import { usePathname } from 'next/navigation'
 
 /**
  * Cabeçalho principal do site
@@ -10,6 +11,7 @@ import Container from './Container'
  */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
     { href: '/', label: 'Início' },
@@ -20,44 +22,62 @@ export default function Header() {
     { href: '/contato', label: 'Contato' },
   ]
 
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname?.startsWith(href)
+  }
+
   return (
     <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 transition-all duration-300 shadow-[0_4px_15px_rgba(80,50,30,0.25)]">
       <Container>
         <nav className="flex items-center justify-between py-4" aria-label="Navegação principal">
-          
           {/* Logo e nome */}
           <Link href="/" className="flex items-center space-x-4 group">
             <img
               src="/images/logo.png"
               alt="Logo Associação Franciscana de Educação e Assistência Social"
-              // AJUSTE 1: Altura aumentada de h-10 para h-12
               className="h-20 w-auto object-contain transition-opacity duration-300 group-hover:opacity-90"
             />
 
             <div className="hidden sm:block">
-              {/* AJUSTE 2: Nome aumentado para text-xl (e text-2xl em telas maiores) para melhor alinhamento visual */}
               <p className="font-bold text-franciscan-brown text-xl md:text-2xl leading-tight group-hover:text-franciscan-green transition-colors">
                 Associação Franciscana
               </p>
-              {/* Texto inferior mantido pequeno para criar hierarquia */}
               <p className="text-[13px] md:text-[13px] text-franciscan-gray font-semibold tracking-widest uppercase mt-1">
                 de Educação e Assistência Social
               </p>
             </div>
           </Link>
 
-          {/* Navegação Desktop */}
-          <ul className="hidden md:flex space-x-1 bg-gray-50/50 p-1 rounded-full border border-gray-100">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block px-5 py-2 rounded-full text-sm font-medium text-franciscan-gray hover:text-franciscan-brown hover:bg-white hover:shadow-sm transition-all duration-300"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+          {/* Navegação Desktop (mais bonita) */}
+          <ul className="hidden md:flex items-center gap-1 px-2 py-2 rounded-full border border-gray-100 bg-white/70 backdrop-blur shadow-sm">
+            {navItems.map((item) => {
+              const active = isActive(item.href)
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={[
+                      'relative block px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300',
+                      'focus:outline-none focus-visible:ring-2 focus-visible:ring-franciscan-green/40',
+                      active
+                        ? 'text-franciscan-brown bg-franciscan-light/60'
+                        : 'text-franciscan-gray hover:text-franciscan-brown hover:bg-franciscan-light/40',
+                    ].join(' ')}
+                  >
+                    {item.label}
+
+                    {/* underline animado */}
+                    <span
+                      className={[
+                        'absolute left-1/2 -bottom-0.5 h-[2px] w-0 -translate-x-1/2 rounded-full transition-all duration-300',
+                        active ? 'w-8 bg-franciscan-green' : 'group-hover:w-8 bg-franciscan-green/70',
+                      ].join(' ')}
+                    />
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
 
           {/* Botão Menu Mobile */}
@@ -76,31 +96,40 @@ export default function Header() {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              {mobileMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
+              {mobileMenuOpen ? <path d="M6 18L18 6M6 6l12 12" /> : <path d="M4 6h16M4 12h16M4 18h16" />}
             </svg>
           </button>
         </nav>
 
-        {/* Menu Mobile */}
+        {/* Menu Mobile (mais bonito) */}
         {mobileMenuOpen && (
           <nav className="md:hidden pb-4 border-t border-gray-100 pt-4 animate-fade-in" aria-label="Menu mobile">
-            <ul className="space-y-1">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="block py-3 px-4 text-franciscan-gray hover:text-franciscan-brown hover:bg-franciscan-light/50 rounded-lg font-medium transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="bg-white/90 backdrop-blur rounded-2xl border border-gray-100 shadow-lg p-2">
+              <ul className="space-y-1">
+                {navItems.map((item) => {
+                  const active = isActive(item.href)
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={[
+                          'flex items-center justify-between py-3 px-4 rounded-xl font-semibold transition-colors',
+                          active
+                            ? 'bg-franciscan-light/60 text-franciscan-brown'
+                            : 'text-franciscan-gray hover:text-franciscan-brown hover:bg-franciscan-light/40',
+                        ].join(' ')}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <span>{item.label}</span>
+                        <svg className="w-4 h-4 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
           </nav>
         )}
       </Container>
