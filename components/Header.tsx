@@ -41,9 +41,9 @@ export default function Header() {
                     />
 
                     <div className="hidden sm:block">
-                      <p className="font-bold text-franciscan-brown text-lg md:text-xl leading-tight group-hover:text-franciscan-green transition-colors">
-                        Associação Franciscana
-                      </p>
+                      <p className="font-bold text-franciscan-brown text-lg md:text-xl leading-tight tracking-wider group-hover:text-franciscan-green transition-colors">
+                          Associação Franciscana
+                        </p>
 
                       <p className="text-[11px] md:text-[12px] text-franciscan-gray font-semibold tracking-widest uppercase mt--2">
                         de Educação e Assistência Social

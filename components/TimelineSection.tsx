@@ -139,9 +139,9 @@ export default function TimelineSection() {
 
       {/* HEADER (igual) */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 mb-12 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#5C3A21] tracking-tight mb-4" style={{ fontFamily: 'Georgia, serif' }}>
-          Uma Jornada de Fé e Serviço
-        </h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-[#5C3A21] tracking-tight mb-4">
+            Uma Jornada de Fé e Serviço
+          </h2>
         <p className="text-lg text-[#8A5A3C] font-bold max-w-2xl mx-auto">
           A trajetória da Província Santa Cruz através dos tempos.
         </p>
