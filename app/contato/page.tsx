@@ -20,8 +20,8 @@ export default function ContatoPage() {
 
       <Section background="white">
         <Container>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
-            <div className="lg:col-span-2 space-y-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-10">
+            <div className="lg:col-span-2 space-y-6">
               
               
               {/* ... Restante do conteúdo ... */}
@@ -77,7 +77,7 @@ export default function ContatoPage() {
                   (31) 3469-5545
                 </InfoCard>
 
-                <div className="bg-white p-6 rounded-2xl border border-franciscan-green/20 shadow-sm mt-6">
+                <div className="mt-8 rounded-3xl overflow-hidden shadow-xl border-4 border-white h-72 w-full relative group">
                   <h3 className="font-bold text-franciscan-brown mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
                     <svg className="w-5 h-5 text-franciscan-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />

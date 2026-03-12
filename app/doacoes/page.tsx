@@ -19,7 +19,7 @@ export default function DoacoesPage() {
 
       <Section background="light">
         <Container>
-          <div className="max-w-4xl mx-auto text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center mb-10">
             <span className="text-franciscan-green font-bold tracking-widest uppercase text-sm">Nossa Missão</span>
             <h2 className="text-3xl md:text-4xl font-bold text-franciscan-brown mt-2 mb-6">
               Por que doar?
@@ -30,7 +30,7 @@ export default function DoacoesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center hover:shadow-lg transition-shadow duration-300">
               <div className="w-16 h-16 bg-franciscan-light text-franciscan-green rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -106,7 +106,7 @@ export default function DoacoesPage() {
 
       <Section background="white">
         <Container>
-          <div className="max-w-4xl mx-auto bg-franciscan-light/30 rounded-3xl p-8 md:p-12 text-center border border-franciscan-light/50">
+          <div className="max-w-4xl mx-auto bg-franciscan-light/30 rounded-3xl p-6 md:p-8 text-center border border-franciscan-light/50">
             <h2 className="text-3xl font-bold text-franciscan-brown mb-4">Como ajudar?</h2>
             <p className="text-lg text-franciscan-gray mb-8 max-w-2xl mx-auto">
               Para garantir segurança e transparência, utilizamos a plataforma oficial{' '}

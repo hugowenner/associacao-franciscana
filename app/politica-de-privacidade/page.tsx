@@ -19,7 +19,7 @@ export default function PoliticaPrivacidadePage() {
 
       <Section background="white">
         <Container>
-          <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
+          <div className="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
             
             <div className="prose prose-lg max-w-none text-franciscan-gray">
               

@@ -46,7 +46,7 @@ export default function HomePage() {
       descricao:
         'Instituição de ensino que alia excelência acadêmica aos valores franciscanos, formando cidadãos conscientes e solidários.',
       endereco: 'Belo Horizonte, MG',
-      site: 'https://www.colegiosantoantonio.org.br',
+      site: 'https://www.colegiosantoantonio.com.br',
     },
     {
       nome: 'Centro de Educação Infantil São Francisco',
@@ -105,7 +105,7 @@ export default function HomePage() {
               colocando-nos a serviço da sociedade, especialmente dos mais necessitados.
             </p>
 
-            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-left md:text-center">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left md:text-center">
               <div>
                 <h3 className="text-lg font-semibold text-franciscan-brown">
                   Fraternidade
@@ -142,7 +142,7 @@ export default function HomePage() {
 
       <Section background="light">
         <Container>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <span className="text-franciscan-green font-bold tracking-widest uppercase text-sm">
               Estrutura Institucional
             </span>
@@ -166,7 +166,7 @@ export default function HomePage() {
           <div
             className="
               text-center text-white max-w-5xl mx-auto relative overflow-hidden
-              rounded-3xl p-10 md:p-16 shadow-2xl
+              rounded-3xl p-10 md:p-12 shadow-2xl
               bg-franciscan-brown
             "
           >

@@ -6,46 +6,46 @@ const CURRENT_YEAR = new Date().getFullYear()
 
 export default function Footer() {
   return (
-    <footer className="bg-franciscan-brown text-white py-6 border-t-4 border-franciscan-green relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+    <footer className="bg-franciscan-brown text-white py-3 md:py-4 border-t-4 border-franciscan-green relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
-          <div className="space-y-2">
+      <Container className="relative z-10 max-w-[1400px]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 md:gap-6 mb-3 items-start">
+          <div className="md:col-span-5">
             <div className="flex items-center space-x-2 mb-2">
-              <div className="w-8 h-1 bg-franciscan-green rounded" />
-              <h3 className="font-semibold text-xl tracking-wide text-white">
+              <div className="w-7 h-1 bg-franciscan-green rounded" />
+              <h3 className="font-semibold text-base md:text-lg tracking-wide text-white">
                 Associação Franciscana
               </h3>
             </div>
 
-            <p className="text-white text-base leading-relaxed font-medium">
-              Educação e Assistência Social inspiradas nos valores franciscanos
-              de simplicidade, fraternidade e serviço ao próximo.
+            <p className="text-white/90 text-sm leading-relaxed max-w-none">
+              Educação e assistência social inspiradas nos valores franciscanos de
+              simplicidade, fraternidade e serviço ao próximo.
             </p>
           </div>
 
-          <div>
-            <div className="flex items-center space-x-2 mb-3">
-              <div className="w-8 h-1 bg-franciscan-green rounded" />
-              <h3 className="font-semibold text-xl tracking-wide text-white">
+          <div className="md:col-span-3">
+            <div className="flex items-center space-x-2 mb-2">
+              <div className="w-7 h-1 bg-franciscan-green rounded" />
+              <h3 className="font-semibold text-base md:text-lg tracking-wide text-white">
                 Links Rápidos
               </h3>
             </div>
 
-            <ul className="space-y-2 text-base font-medium">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
               {[
                 { href: '/quem-somos', label: 'Quem Somos' },
                 { href: '/unidades', label: 'Unidades' },
                 { href: '/noticias', label: 'Notícias' },
-                { href: '/dre', label: 'Demonstrações financeiras' },
+                { href: '/dre', label: 'Financeiras' },
                 { href: '/lgpd', label: 'LGPD' },
                 { href: '/contato', label: 'Contato' },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white hover:text-franciscan-green hover:pl-1 transition-all duration-300 block"
+                    className="text-white/95 hover:text-franciscan-green hover:pl-1 transition-all duration-300 block"
                   >
                     {link.label}
                   </Link>
@@ -54,18 +54,18 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
-            <div className="flex items-center space-x-2 mb-3">
-              <div className="w-8 h-1 bg-franciscan-green rounded" />
-              <h3 className="font-semibold text-xl tracking-wide text-white">
+          <div className="md:col-span-4">
+            <div className="flex items-center space-x-2 mb-2">
+              <div className="w-7 h-1 bg-franciscan-green rounded" />
+              <h3 className="font-semibold text-base md:text-lg tracking-wide text-white">
                 Contato
               </h3>
             </div>
 
-            <address className="text-white text-base not-italic space-y-3 font-medium">
+            <address className="text-white/90 text-sm not-italic space-y-2">
               <div className="flex items-start gap-2">
                 <svg
-                  className="w-5 h-5 text-franciscan-green mt-0.5 flex-shrink-0"
+                  className="w-4 h-4 text-franciscan-green mt-0.5 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -74,15 +74,13 @@ export default function Footer() {
                 </svg>
 
                 <p>
-                  Rua Sabinópolis, 50A<br />
-                  Carlos Prates, Belo Horizonte - MG<br />
-                  CEP: 30710-340
+                  Rua Sabinópolis, 50A · Carlos Prates · Belo Horizonte - MG · CEP 30710-340
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-franciscan-green flex-shrink-0"
+                  className="w-4 h-4 text-franciscan-green flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -92,7 +90,7 @@ export default function Footer() {
 
                 <a
                   href="mailto:contato@associacaofranciscana.org.br"
-                  className="text-white hover:text-franciscan-green transition-colors"
+                  className="text-white/95 hover:text-franciscan-green transition-colors"
                 >
                   contato@associacaofranciscana.org.br
                 </a>
@@ -100,7 +98,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-franciscan-green flex-shrink-0"
+                  className="w-4 h-4 text-franciscan-green flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -110,7 +108,7 @@ export default function Footer() {
 
                 <a
                   href="tel:+553134695545"
-                  className="text-white hover:text-franciscan-green transition-colors"
+                  className="text-white/95 hover:text-franciscan-green transition-colors"
                 >
                   (31) 3469-5545
                 </a>
@@ -119,8 +117,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-4 flex items-center justify-center gap-4">
-          <p className="text-sm text-white/90 font-medium text-center">
+        <div className="border-t border-white/10 pt-2 flex items-center justify-center">
+          <p className="text-[11px] text-white/80 text-center">
             © {CURRENT_YEAR} Associação Franciscana de Educação e Assistência Social
           </p>
         </div>

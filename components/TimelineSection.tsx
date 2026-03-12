@@ -10,19 +10,21 @@ const timelineData = [
   { value: 'Simplicidade', type: 'value', icon: 'feather' },
   { year: '1903', title: 'Minas Gerais', desc: 'Primeira residência em Ouro Preto.', type: 'history', icon: 'church' },
   { value: 'Serviço', type: 'value', icon: 'heart' },
-  { year: '1912', title: 'São João del-Rei', desc: 'Transferência da sede para São João del-Rei.', type: 'history', icon: 'city' },
+  { year: '1904', title: 'Casa de Santo Antônio', desc: 'Em 19/04/1904, foi fundada a associação civil denominada Casa de Santo Antônio, em Ouro Preto.', type: 'history', icon: 'house' },
   { value: 'Educação', type: 'value', icon: 'book' },
-  { year: '1925', title: 'Divinópolis', desc: 'Transferência para Divinópolis.', type: 'history', icon: 'tree' },
+  { year: '1904', title: 'São João del-Rei', desc: 'Chegada do primeiro frade franciscano à cidade, Frei Patrício Meijer.', type: 'history', icon: 'city' },
   { value: 'Assistência Social', type: 'value', icon: 'handshake' },
-  { year: '1931', title: 'Teologia', desc: 'Início do Curso de Teologia.', type: 'history', icon: 'scroll' },
+  { year: '1924', title: 'Divinópolis', desc: 'Início da presença franciscana em Divinópolis, quando o então Comissariado aceitou assumir a Paróquia do Divino Espírito Santo.', type: 'history', icon: 'tree' },
   { value: 'Missão', type: 'value', icon: 'compass' },
-  { year: '1941', title: 'Comissariado', desc: 'Mudança do nome para Comissariado Santa Cruz.', type: 'history', icon: 'badge' },
+  { year: '1931', title: 'Teologia', desc: 'Início do Curso de Teologia no Convento de Divinópolis.', type: 'history', icon: 'scroll' },
   { value: 'Formação', type: 'value', icon: 'lamp' },
-  { year: '1949', title: 'Província Autônoma', desc: 'Elevação à Província autônoma.', type: 'history', icon: 'flag' },
+  { year: '1941', title: 'Comissariado', desc: 'Mudança do nome para Comissariado Santa Cruz.', type: 'history', icon: 'badge' },
   { value: 'Evangelização', type: 'value', icon: 'cross' },
-  { year: '1950', title: 'Província Santa Cruz', desc: 'Criação oficial da Província Santa Cruz.', type: 'history', icon: 'crown' },
+  { year: '1949', title: 'Província Autônoma', desc: 'Elevação à Província autônoma.', type: 'history', icon: 'flag' },
   { value: 'Dignidade Humana', type: 'value', icon: 'person' },
+  { year: '1950', title: 'Província Santa Cruz', desc: 'Criação oficial da Província Santa Cruz.', type: 'history', icon: 'crown' },
   { year: '1959', title: 'Belo Horizonte', desc: 'Sede transferida para Belo Horizonte.', type: 'history', icon: 'building' },
+  { year: '1985', title: 'São João del-Rei', desc: 'Em 04/02/1985, foi inaugurado o novo Postulantado da Província, com a presença de Dom Antônio Carlos Mesquita, Frei Patrício de Moura Fonseca e diversos confrades.', type: 'history', icon: 'church' },
   { year: 'Presente', title: 'Expansão Missionária', desc: 'Minas Gerais, RS, Bahia e Missões Internacionais.', type: 'history', icon: 'globe' },
 ]
 
@@ -53,8 +55,6 @@ const Icons = {
 export default function TimelineSection() {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [isVisible, setIsVisible] = useState(false)
-
-  // ✅ monta o conteúdo pesado só quando entra no viewport
   const [shouldRenderTimeline, setShouldRenderTimeline] = useState(false)
 
   useEffect(() => {
@@ -74,12 +74,10 @@ export default function TimelineSection() {
     return () => observer.disconnect()
   }, [])
 
-  // (opcional) memo para não recriar em cada render
   const data = useMemo(() => timelineData, [])
 
   return (
     <section className="relative py-20 overflow-hidden bg-[#F2E8DC] border-t-4 border-b-4 border-[#5C3A21]/20">
-      {/* BACKGROUND (igual ao seu) */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black/10" />
         <div
@@ -137,20 +135,17 @@ export default function TimelineSection() {
         </div>
       </div>
 
-      {/* HEADER (igual) */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 mb-12 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-[#5C3A21] tracking-tight mb-4">
-            Uma Jornada de Fé e Serviço
-          </h2>
+          Uma Jornada de Fé e Serviço
+        </h2>
         <p className="text-lg text-[#8A5A3C] font-bold max-w-2xl mx-auto">
           A trajetória da Província Santa Cruz através dos tempos.
         </p>
       </div>
 
-      {/* âncora do observer */}
       <div ref={scrollRef} />
 
-      {/* ✅ só monta o conteúdo pesado quando entrar na tela */}
       {shouldRenderTimeline ? (
         <>
           <div className="relative w-full overflow-x-auto pb-10 scrollbar-thin scrollbar-thumb-[#8A5A3C] scrollbar-track-transparent">
@@ -273,7 +268,6 @@ export default function TimelineSection() {
           </div>
         </>
       ) : (
-        // ✅ placeholder leve (não muda o layout final, só ocupa espaço e evita “pulo”)
         <div className="max-w-7xl mx-auto px-4">
           <div className="h-[260px] md:h-[300px] rounded-2xl bg-white/40 border border-[#5C3A21]/10 shadow-sm" />
           <div className="flex justify-center gap-2 mt-4 md:hidden">

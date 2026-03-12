@@ -3,7 +3,6 @@ import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import CookieBanner from '@/components/CookieBanner'
 
 export const metadata: Metadata = {
   title: {
@@ -19,9 +18,6 @@ export const metadata: Metadata = {
     'OFM',
     'São Francisco de Assis',
   ],
-  other: {
-    'adopt-website-id': 'd150a255-8cbb-44eb-a5b7-02bcd4127715',
-  },
 }
 
 export default function RootLayout({
@@ -31,13 +27,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
+      <head>
+        <meta
+          name="adopt-website-id"
+          content="d150a255-8cbb-44eb-a5b7-02bcd4127715"
+        />
+      </head>
+
       <body className="text-franciscan-gray antialiased">
         <Header />
         <main className="min-h-screen flex flex-col justify-center">
           {children}
         </main>
         <Footer />
-        <CookieBanner />
+        
 
         <Script
           id="adopt-injector"

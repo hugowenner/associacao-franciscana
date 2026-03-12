@@ -24,7 +24,7 @@ export default function NoticiasPage() {
       <Section background="light">
         <Container>
           {noticias.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
               {noticias.map((noticia) => (
                 <Card
                   key={noticia.slug}
@@ -36,7 +36,7 @@ export default function NoticiasPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-24 bg-white/60 backdrop-blur-sm rounded-3xl max-w-2xl mx-auto border border-gray-100">
+            <div className="text-center py-16 bg-white/60 backdrop-blur-sm rounded-3xl max-w-2xl mx-auto border border-gray-100">
               <div className="text-7xl mb-6 grayscale opacity-50">📰</div>
               <p className="text-franciscan-gray text-lg font-medium">
                 Nenhuma notícia disponível no momento.

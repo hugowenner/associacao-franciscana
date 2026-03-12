@@ -45,7 +45,7 @@ export default async function NoticiaPage({ params }: Props) {
       <Container>
         <article className="max-w-4xl mx-auto">
           {/* Breadcrumb */}
-          <nav className="mb-8" aria-label="Breadcrumb">
+          <nav className="mb-6" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-sm text-franciscan-gray">
               <li>
                 <Link href="/" className="hover:text-franciscan-green transition-colors">
