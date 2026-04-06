@@ -38,7 +38,7 @@ export default function Footer() {
                 { href: '/quem-somos', label: 'Quem Somos' },
                 { href: '/unidades', label: 'Unidades' },
                 { href: '/noticias', label: 'Notícias' },
-                { href: '/dre', label: 'Financeiras' },
+                { href: '/dre', label: 'Demonstração Financeira' },
                 { href: '/lgpd', label: 'LGPD' },
                 { href: '/contato', label: 'Contato' },
               ].map((link) => (
