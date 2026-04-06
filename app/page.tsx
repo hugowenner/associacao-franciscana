@@ -23,21 +23,6 @@ const Organogram = dynamic(() => import('@/components/Organogram'), {
   ),
 })
 
-const TimelineSection = dynamic(() => import('@/components/TimelineSection'), {
-  ssr: true,
-  loading: () => (
-    <Section background="beige">
-      <Container>
-        <div className="max-w-4xl mx-auto">
-          <div className="h-8 w-64 bg-gray-200 rounded mb-4 animate-pulse" />
-          <div className="h-4 w-full bg-gray-200 rounded mb-2 animate-pulse" />
-          <div className="h-4 w-5/6 bg-gray-200 rounded animate-pulse" />
-        </div>
-      </Container>
-    </Section>
-  ),
-})
-
 export default function HomePage() {
   const unidadesAssociacao = [
     {
@@ -136,9 +121,6 @@ export default function HomePage() {
           </div>
         </Container>
       </Section>
-
-      {/* ✅ Lazy (reduz bundle inicial) */}
-      <TimelineSection />
 
       <Section background="light">
         <Container>
