@@ -33,7 +33,7 @@ export default function Footer() {
               </h3>
             </div>
 
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
               {[
                 { href: '/quem-somos', label: 'Quem Somos' },
                 { href: '/unidades', label: 'Unidades' },
@@ -74,7 +74,8 @@ export default function Footer() {
                 </svg>
 
                 <p>
-                  Rua Sabinópolis, 50A · Carlos Prates · Belo Horizonte - MG · CEP 30710-340
+                  Rua Sabinópolis, 50A · Carlos Prates · Belo Horizonte - MG <br />
+                  <span className="whitespace-nowrap">CEP: 30710-340</span>
                 </p>
               </div>
 
@@ -117,8 +118,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-2 flex items-center justify-center">
-          <p className="text-[11px] text-white/80 text-center">
+        <div className="border-t border-white/10 pt-6 flex items-center justify-center">
+          <p className="text-base text-white/80 font-medium text-center">
             © {CURRENT_YEAR} Associação Franciscana de Educação e Assistência Social
           </p>
         </div>

@@ -102,7 +102,7 @@ export default function ContatoPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale group-hover:grayscale-0 transition-all duration-700"
+                  className="transition-all duration-700"
                 ></iframe>
               </div>
             </div>
